@@ -1,9 +1,11 @@
 import './Logo.css';
 
-const Logo = () => {
+const Logo = (className) => {
   return (
-    <img className="nav-logo" src={require("../../images/kintsugi-logo.jpg")} alt="logo" />
-  )
+    <a href="../../../public/index.html">
+    <img className={`${className.className}`} src={require("../../images/kintsugi-logo.jpg")} alt="logo" />
+    </a>
+    )
 }
 
 export default Logo;
