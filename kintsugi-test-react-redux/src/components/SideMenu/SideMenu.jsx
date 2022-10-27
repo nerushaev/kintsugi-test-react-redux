@@ -5,13 +5,13 @@ import { MenuContext } from '../../context/navState';
 import arrow from '../../images/arrow.svg';
 
 const Menu = styled.nav`
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   bottom: 0px;
   z-index: 293;
   display: block;
-  width: 400px;
+  width: 100%;
   max-width: 100%;
   margin-top: 0px;
   padding-top: 100px;
