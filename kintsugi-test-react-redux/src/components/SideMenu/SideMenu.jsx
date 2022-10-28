@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { MenuContext } from '../../context/navState';
 import arrow from '../../images/arrow.svg';
+import { NavLink } from 'react-router-dom';
 
 const Menu = styled.nav`
   position: fixed;
@@ -28,7 +29,7 @@ const Menu = styled.nav`
     `}
 `;
 
-export const MenuLink = styled.a`
+export const MenuLink = styled(NavLink)`
   position: relative;
   display: block;
   text-align: left;
@@ -53,9 +54,9 @@ export const MenuLink = styled.a`
 `;
 
 export const SideMenu = ({ children }) => {
-  const { isMenuOpen } = useContext(MenuContext);
+  const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
 
-  return <Menu open={isMenuOpen}>{children}</Menu>;
+  return <Menu onClick={() => toggleMenuMode()} open={isMenuOpen}>{children}</Menu>;
 };
 
 SideMenu.propTypes = {
@@ -65,10 +66,10 @@ SideMenu.propTypes = {
 SideMenu.defaultProps = {
   children: (
     <>
-      <MenuLink href="/">Головна</MenuLink>
-      <MenuLink href="/articles">Каталог</MenuLink>
-      <MenuLink href="/about">Доставка</MenuLink>
-      <MenuLink href="/contact">Про нас</MenuLink>
+      <MenuLink to="/" end href="/">Головна</MenuLink>
+      <MenuLink href="/goods">Каталог</MenuLink>
+      <MenuLink href="/delivery">Доставка</MenuLink>
+      <MenuLink to="about" href="/about">Про нас</MenuLink>
     </>
   ),
 };

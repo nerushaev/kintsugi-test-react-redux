@@ -1,18 +1,18 @@
-// import Section from "./components/Section/Section";
-import NavState from "./context/navState"
-import MainMenu from "./components/MainMenu/MainMenu";
-import Footer from "./components/Footer/Footer";
-import GoodsList from './components/Goods/GoodsList/GoodsList'
+import SharedLayout from './components/SharedLayout/SharedLayout'
+import Home from './pages/Home'
+import { Routes, Route } from 'react-router-dom'
+import GoodsDetails from './components/Goods/GoodsDetails/GoodsDetails';
+import About from './pages/About';
 
 function App() {
   return (
-    <>
-      <NavState>
-        <MainMenu />
-      </NavState>
-      <GoodsList />
-      <Footer/>
-    </>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route path=":goodsId" element={<GoodsDetails />} />
+        <Route path="about" element={<About />} />
+      </Route>
+    </Routes>
   );
 }
 

@@ -9,6 +9,7 @@ import Logo from '../Logo/Logo'
 const Navbar = styled.div`
   display: flex;
   position: fixed;
+  top: -1px;
   left: 0;
   right: 0;
   box-sizing: border-box;

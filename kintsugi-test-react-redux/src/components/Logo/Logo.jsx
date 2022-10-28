@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import './Logo.css';
 
 const Logo = (className) => {
   return (
-    <a href="../../../public/index.html">
+    <Link to="/" href="../../../public/index.html">
     <img className={`${className.className}`} src={require("../../images/kintsugi-logo.jpg")} alt="logo" />
-    </a>
+    </Link>
     )
 }
 

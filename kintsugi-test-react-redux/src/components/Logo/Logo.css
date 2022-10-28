@@ -6,7 +6,5 @@
 .footer-logo {
   width: 200px;
   height: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
+  margin: 0 auto;
 }
