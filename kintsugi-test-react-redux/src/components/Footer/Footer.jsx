@@ -1,12 +1,13 @@
-import Logo from "../Logo/Logo"
 import styled from "styled-components";
+import { IconsSet } from "./IconsSet";
 
 const FooterWrapper = styled.div`
-position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 100px;
 `;
 
 const Text = styled.p`
@@ -19,10 +20,11 @@ const Footer = () => {
 
   return (
     <footer>
-      <FooterWrapper>
+    <FooterWrapper>
         <Text>&#169; Kintsugi</Text>
+        <IconsSet />
       </FooterWrapper>
-    </footer>
+      </footer>
   )
 }
 

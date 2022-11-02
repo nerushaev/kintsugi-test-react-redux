@@ -2,16 +2,18 @@ import MainMenu from "../MainMenu/MainMenu";
 import NavState from "../../context/navState";
 import Footer from '../Footer/Footer'
 import { Outlet } from "react-router";
-import Section from "../Section/Section";
+import Container from "../Container/Container";
 
 export default function SharedLayout () {
   return (
-    <Section>
+    <Container>
       <NavState>
         <MainMenu />
           </NavState>
-        <Outlet />
-      <Footer />
-    </Section>
+      <main>
+      <Outlet />
+      </main>
+        <Footer />
+      </Container>
   )
 }

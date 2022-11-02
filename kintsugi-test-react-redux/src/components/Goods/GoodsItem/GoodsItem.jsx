@@ -1,27 +1,26 @@
-import randomNumber from 'random-number'
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Container from '../../Container/Container';
 
-const Item = styled.li`
+export const Item = styled.li`
+  list-style: none;
   text-align: center;
   &:not(:last-child) {
     margin-bottom: 50px;
   }
-  &:last-child {
-    margin-bottom: 100px;
-  }
 `;
 
-const Images = styled.img`
+export const Images = styled.img`
   margin-bottom: 10px;
 `;
 
-const ItemText = styled.p`
+export const ItemText = styled.p`
   margin-bottom: 10px;
+  font-size: ${props => props.itemName ? "20px" : "16px"}
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   width: 200px;
   height: 40px;
   background-color: white;
@@ -44,24 +43,21 @@ const Button = styled.button`
 
 
 
-const GoodsItem = ({ data }) => {
 
-  const randomPrice = randomNumber.generator({
-    min: 50,
-    max: 3000,
-    integer: true,
-  });
-  return data.map(({ body }) => {
+
+export const GoodsItem = ({ data }) => {
+  return data.map(({ name, description, id, image, amount, price }) => {
     return (
-    <Item key={nanoid()}>
-      <Images src={require("../../../images/keep-calm-poster-not-found.webp")} alt="" />
-      <ItemText>{body}</ItemText>
-      <Link to={`${nanoid()}`}>{`${randomPrice()} ₴`}</Link>
+      <Item key={nanoid()}>
+      <Link to={`/${id}`}>
+      <Images src={image} alt="" />
+      <ItemText itemName>{name}</ItemText>
+      <ItemText>{description}</ItemText>
+      <ItemText>{price} ₴</ItemText>
+      </Link>
       <Button>Додати у кошик</Button>
-    </Item>
+        </Item>
   )
   })
 
 };
-
-export default GoodsItem;

@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
-import getPosts from "../../../API/api";
-import GoodsItem from "../GoodsItem/GoodsItem"
+import {getItems} from "../../../API/api";
+import {GoodsItem} from "../GoodsItem/GoodsItem"
 import styled from "styled-components";
-import Section from '../../Section/Section'
+import Container from "../../Container/Container";
 
 const List = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 100px;
 `;
 
 const GoodList = () => {
@@ -18,7 +17,7 @@ const GoodList = () => {
   useEffect(() => {
     async function onGetPosts() {
     try {
-      const data = await getPosts();
+      const data = await getItems();
       setItems(data);
     } catch(error) {
       setError(error);
@@ -28,12 +27,10 @@ const GoodList = () => {
   }, [])
 
   return (
-    <Section>
       <List>
         <GoodsItem data={items} />
         {error && <p>Somethink wrong...</p>}
       </List>
-    </Section>
   )
 }
 

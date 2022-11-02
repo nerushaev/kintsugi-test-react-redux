@@ -1,7 +1,7 @@
 import SharedLayout from './components/SharedLayout/SharedLayout'
 import Home from './pages/Home'
 import { Routes, Route } from 'react-router-dom'
-import GoodsDetails from './components/Goods/GoodsDetails/GoodsDetails';
+import {GoodsDetails} from './components/Goods/GoodsDetails/GoodsDetails';
 import About from './pages/About';
 
 function App() {

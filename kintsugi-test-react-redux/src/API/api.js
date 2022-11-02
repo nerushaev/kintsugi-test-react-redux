@@ -1,12 +1,20 @@
 import axios from 'axios'
 
+const BASE_URL = 'https://635d11d6fc2595be26523054.mockapi.io/api/kintsugi';
 
-const BASE_URL = 'https://jsonplaceholder.typicode.com/posts'
+const instance = axios.create({
+  baseURL: BASE_URL,
+  params: {
+    _limit: 12
+  }
+})
 
-const getPosts = async () => {
-  const { data } = await axios.get(BASE_URL);
+export const getItems = async () => {
+  const { data } = await instance.get("/");
   return data;
 }
 
-
-export default getPosts;
+export const getItem = async (id) => {
+  const { data } = await instance.get(`/${id}`)
+  return data;
+}

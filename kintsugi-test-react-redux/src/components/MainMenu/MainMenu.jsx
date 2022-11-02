@@ -22,10 +22,14 @@ const Navbar = styled.div`
   min-width: 0px;
   min-height: 0px;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-around;
   padding: 6px 10px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px;
   z-index: 500;
+`;
+
+const Header = styled.header`
+  height: 100px;
 `;
 
 const MainMenu = () => {
@@ -38,13 +42,13 @@ const MainMenu = () => {
   });
 
   return (
-    <header ref={node}>
+    <Header ref={node}>
       <Navbar>
         <HamburgerButton />
         <Logo className={"nav-logo"}/>
       </Navbar>
       <SideMenu />
-    </header>
+    </Header>
   );
 };
 
